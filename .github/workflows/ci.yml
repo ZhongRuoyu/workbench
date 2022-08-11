@@ -18,6 +18,9 @@ jobs:
           - tags: zhongruoyu/workbench:focal
             file: focal.Dockerfile
             platforms: linux/amd64,linux/arm64
+          - tags: zhongruoyu/workbench:fedora
+            file: fedora.Dockerfile
+            platforms: linux/amd64,linux/arm64
     runs-on: ubuntu-latest
     steps:
       - name: Set up QEMU
