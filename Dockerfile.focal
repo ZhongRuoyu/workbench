@@ -2,13 +2,10 @@
 
 FROM zhongruoyu/sandbox:focal
 
-RUN <<EOF
-cd /usr/local/bin
->docker-entrypoint.sh
-echo '#!/bin/bash' >>docker-entrypoint.sh
-echo 'service ssh start' >>docker-entrypoint.sh
-echo 'exec "$@"' >>docker-entrypoint.sh
-chmod +x docker-entrypoint.sh
+COPY --chmod=755 <<EOF /usr/local/bin/docker-entrypoint.sh
+#!/bin/bash
+service ssh start
+exec "$@"
 EOF
 ENTRYPOINT [ "docker-entrypoint.sh" ]
 CMD [ "bash" ]
