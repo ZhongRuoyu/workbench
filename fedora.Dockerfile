@@ -1,10 +1,12 @@
 # syntax = docker/dockerfile:1
 
-FROM zhongruoyu/sandbox:focal
+ARG IMAGE_TAG=latest
+FROM zhongruoyu/sandbox:$IMAGE_TAG
 
 COPY --chmod=755 <<-"EOF" /usr/local/bin/docker-entrypoint.sh
 #!/bin/bash
-service ssh start
+ssh-keygen -A
+/usr/sbin/sshd
 exec "$@"
 EOF
 ENTRYPOINT [ "docker-entrypoint.sh" ]

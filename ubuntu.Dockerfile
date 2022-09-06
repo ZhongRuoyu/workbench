@@ -1,6 +1,7 @@
 # syntax = docker/dockerfile:1
 
-FROM zhongruoyu/sandbox:jammy
+ARG IMAGE_TAG=latest
+FROM zhongruoyu/sandbox:$IMAGE_TAG
 
 COPY --chmod=755 <<-"EOF" /usr/local/bin/docker-entrypoint.sh
 #!/bin/bash
