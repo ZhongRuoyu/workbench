@@ -48,6 +48,13 @@ jobs:
               linux/arm64
             tags: |
               zhongruoyu/workbench:fedora
+          - build-args: |
+              IMAGE_TAG=latest
+            file: archlinux.Dockerfile
+            platforms: |
+              linux/amd64
+            tags: |
+              zhongruoyu/workbench:archlinux
     runs-on: ubuntu-latest
     steps:
       - name: Set up QEMU
