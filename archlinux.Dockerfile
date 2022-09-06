@@ -14,6 +14,7 @@ CMD [ "bash" ]
 EXPOSE 22
 
 RUN <<-"EOF"
+    set -e
     groupadd -g 1000 ruoyu
     useradd -d /home/ruoyu -g ruoyu -m -s /usr/bin/zsh -u 1000 ruoyu
     echo "ruoyu ALL=(ALL) NOPASSWD:ALL" >/etc/sudoers.d/ruoyu
