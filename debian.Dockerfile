@@ -1,6 +1,6 @@
 # syntax = docker/dockerfile:1
 
-ARG IMAGE_TAG=latest
+ARG IMAGE_TAG=debian
 FROM zhongruoyu/sandbox:$IMAGE_TAG
 
 COPY --chmod=755 <<-"EOF" /usr/local/bin/docker-entrypoint.sh
