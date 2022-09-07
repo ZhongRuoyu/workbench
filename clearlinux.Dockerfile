@@ -17,6 +17,8 @@ RUN <<-"EOF"
     set -e
     groupadd -g 1000 ruoyu
     useradd -d /home/ruoyu -g ruoyu -m -s /usr/bin/zsh -u 1000 ruoyu
+    mkdir -p /etc/sudoers.d
     echo "ruoyu ALL=(ALL) NOPASSWD:ALL" >/etc/sudoers.d/ruoyu
+    echo "@includedir /etc/sudoers.d" >/etc/sudoers
 EOF
 VOLUME [ "/home/ruoyu" ]
