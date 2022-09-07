@@ -41,7 +41,7 @@ jobs:
               zhongruoyu/workbench:debian
               zhongruoyu/workbench:bullseye
           - build-args: |
-              IMAGE_TAG=latest
+              IMAGE_TAG=fedora
             file: fedora.Dockerfile
             platforms: |
               linux/amd64
@@ -49,14 +49,14 @@ jobs:
             tags: |
               zhongruoyu/workbench:fedora
           - build-args: |
-              IMAGE_TAG=latest
+              IMAGE_TAG=archlinux
             file: archlinux.Dockerfile
             platforms: |
               linux/amd64
             tags: |
               zhongruoyu/workbench:archlinux
           - build-args: |
-              IMAGE_TAG=latest
+              IMAGE_TAG=clearlinux
             file: clearlinux.Dockerfile
             platforms: |
               linux/amd64
