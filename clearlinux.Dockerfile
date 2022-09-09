@@ -14,5 +14,9 @@ RUN <<-"EOF"
 EOF
 VOLUME [ "/home/ruoyu" ]
 
-CMD [ "/usr/sbin/sshd", "-D" ]
+COPY --chmod=755 <<-"EOF" /usr/local/bin/docker-entrypoint.sh
+#!/bin/bash
+/usr/sbin/sshd -D
+EOF
+CMD [ "docker-entrypoint.sh" ]
 EXPOSE 22

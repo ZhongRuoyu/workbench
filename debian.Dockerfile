@@ -12,5 +12,9 @@ RUN <<-"EOF"
 EOF
 VOLUME [ "/home/ruoyu" ]
 
-CMD [ "service", "ssh", "start", "-D" ]
+COPY --chmod=755 <<-"EOF" /usr/local/bin/docker-entrypoint.sh
+#!/bin/bash
+service ssh start -D
+EOF
+CMD [ "docker-entrypoint.sh" ]
 EXPOSE 22
