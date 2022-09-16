@@ -1,4 +1,4 @@
-# syntax = docker/dockerfile:1
+# syntax=docker/dockerfile:1
 
 ARG IMAGE_TAG=fedora
 FROM zhongruoyu/sandbox:$IMAGE_TAG
