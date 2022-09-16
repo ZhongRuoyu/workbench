@@ -14,71 +14,38 @@ jobs:
       fail-fast: false
       matrix:
         target:
-          - build-args: |
-              IMAGE_TAG=jammy
+          - tags: zhongruoyu/workbench:latest,zhongruoyu/workbench:ubuntu,zhongruoyu/workbench:jammy
+            platforms: linux/amd64,linux/arm64
             file: ubuntu.Dockerfile
-            platforms: |
-              linux/amd64
-              linux/arm64
-            tags: |
-              zhongruoyu/workbench:latest
-              zhongruoyu/workbench:ubuntu
-              zhongruoyu/workbench:jammy
-          - build-args: |
-              IMAGE_TAG=focal
+            build-args: IMAGE_TAG=jammy
+          - tags: zhongruoyu/workbench:focal
+            platforms: linux/amd64,linux/arm64
             file: ubuntu.Dockerfile
-            platforms: |
-              linux/amd64
-              linux/arm64
-            tags: |
-              zhongruoyu/workbench:focal
-          - build-args: |
-              IMAGE_TAG=bullseye
+            build-args: IMAGE_TAG=focal
+          - tags: zhongruoyu/workbench:debian,zhongruoyu/workbench:bullseye
+            platforms: linux/amd64,linux/arm64
             file: debian.Dockerfile
-            platforms: |
-              linux/amd64
-              linux/arm64
-            tags: |
-              zhongruoyu/workbench:debian
-              zhongruoyu/workbench:bullseye
-          - build-args: |
-              IMAGE_TAG=fedora
+            build-args: IMAGE_TAG=bullseye
+          - tags: zhongruoyu/workbench:fedora
+            platforms: linux/amd64,linux/arm64
             file: fedora.Dockerfile
-            platforms: |
-              linux/amd64
-              linux/arm64
-            tags: |
-              zhongruoyu/workbench:fedora
-          - build-args: |
-              IMAGE_TAG=archlinux
+            build-args: IMAGE_TAG=fedora
+          - tags: zhongruoyu/workbench:archlinux
+            platforms: linux/amd64
             file: archlinux.Dockerfile
-            platforms: |
-              linux/amd64
-            tags: |
-              zhongruoyu/workbench:archlinux
-          - build-args: |
-              IMAGE_TAG=rockylinux
+            build-args: IMAGE_TAG=archlinux
+          - tags: zhongruoyu/workbench:rockylinux,zhongruoyu/workbench:rockylinux-9
+            platforms: linux/amd64,linux/arm64
             file: rockylinux.Dockerfile
-            platforms: |
-              linux/amd64
-              linux/arm64
-            tags: |
-              zhongruoyu/workbench:rockylinux
-          - build-args: |
-              IMAGE_TAG=alpine
+            build-args: IMAGE_TAG=rockylinux
+          - tags: zhongruoyu/workbench:alpine
+            platforms: linux/amd64,linux/arm64
             file: alpine.Dockerfile
-            platforms: |
-              linux/amd64
-              linux/arm64
-            tags: |
-              zhongruoyu/workbench:alpine
-          - build-args: |
-              IMAGE_TAG=clearlinux
+            build-args: IMAGE_TAG=alpine
+          - tags: zhongruoyu/workbench:clearlinux
+            platforms: linux/amd64
             file: clearlinux.Dockerfile
-            platforms: |
-              linux/amd64
-            tags: |
-              zhongruoyu/workbench:clearlinux
+            build-args: IMAGE_TAG=clearlinux
     runs-on: ubuntu-latest
     steps:
       - name: Set up QEMU
@@ -93,8 +60,8 @@ jobs:
       - name: Build and push Docker images
         uses: docker/build-push-action@v3
         with:
-          build-args: ${{ matrix.target.build-args }}
-          file: ${{ matrix.target.file }}
-          platforms: ${{ matrix.target.platforms }}
-          push: true
           tags: ${{ matrix.target.tags }}
+          platforms: ${{ matrix.target.platforms }}
+          file: ${{ matrix.target.file }}
+          build-args: ${{ matrix.target.build-args }}
+          push: true
