@@ -30,22 +30,22 @@ jobs:
             platforms: linux/amd64,linux/arm64
             file: fedora.Dockerfile
             build-args: IMAGE_TAG=fedora
-          - tags: zhongruoyu/workbench:archlinux
-            platforms: linux/amd64
-            file: archlinux.Dockerfile
-            build-args: IMAGE_TAG=archlinux
           - tags: zhongruoyu/workbench:rockylinux,zhongruoyu/workbench:rockylinux-9
             platforms: linux/amd64,linux/arm64
             file: rockylinux.Dockerfile
             build-args: IMAGE_TAG=rockylinux-9
-          - tags: zhongruoyu/workbench:alpine
-            platforms: linux/amd64,linux/arm64
-            file: alpine.Dockerfile
-            build-args: IMAGE_TAG=alpine
+          - tags: zhongruoyu/workbench:archlinux
+            platforms: linux/amd64
+            file: archlinux.Dockerfile
+            build-args: IMAGE_TAG=archlinux
           - tags: zhongruoyu/workbench:clearlinux
             platforms: linux/amd64
             file: clearlinux.Dockerfile
             build-args: IMAGE_TAG=clearlinux
+          - tags: zhongruoyu/workbench:alpine
+            platforms: linux/amd64,linux/arm64
+            file: alpine.Dockerfile
+            build-args: IMAGE_TAG=alpine
     runs-on: ubuntu-latest
     steps:
       - name: Set up QEMU
