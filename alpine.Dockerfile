@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 
-ARG IMAGE_TAG=alpine
-FROM zhongruoyu/sandbox:$IMAGE_TAG
+ARG BASE_IMAGE_TAG=alpine
+FROM zhongruoyu/sandbox:${BASE_IMAGE_TAG}
 
 RUN <<-"EOF"
     set -e
