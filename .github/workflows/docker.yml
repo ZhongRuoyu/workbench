@@ -17,35 +17,51 @@ jobs:
           - tags: zhongruoyu/workbench:latest,zhongruoyu/workbench:ubuntu,zhongruoyu/workbench:jammy
             platforms: linux/amd64,linux/arm64
             file: ubuntu.Dockerfile
-            build-args: BASE_IMAGE_TAG=jammy
+            build-args: |
+              BASE_IMAGE_TAG=jammy
+              USERNAME=ruoyu
           - tags: zhongruoyu/workbench:focal
             platforms: linux/amd64,linux/arm64
             file: ubuntu.Dockerfile
-            build-args: BASE_IMAGE_TAG=focal
+            build-args: |
+              BASE_IMAGE_TAG=focal
+              USERNAME=ruoyu
           - tags: zhongruoyu/workbench:debian,zhongruoyu/workbench:bullseye
             platforms: linux/amd64,linux/arm64
             file: debian.Dockerfile
-            build-args: BASE_IMAGE_TAG=bullseye
+            build-args: |
+              BASE_IMAGE_TAG=bullseye
+              USERNAME=ruoyu
           - tags: zhongruoyu/workbench:fedora
             platforms: linux/amd64,linux/arm64
             file: fedora.Dockerfile
-            build-args: BASE_IMAGE_TAG=fedora
+            build-args: |
+              BASE_IMAGE_TAG=fedora
+              USERNAME=ruoyu
           - tags: zhongruoyu/workbench:rockylinux,zhongruoyu/workbench:rockylinux-9
             platforms: linux/amd64,linux/arm64
             file: rockylinux.Dockerfile
-            build-args: BASE_IMAGE_TAG=rockylinux-9
+            build-args: |
+              BASE_IMAGE_TAG=rockylinux-9
+              USERNAME=ruoyu
           - tags: zhongruoyu/workbench:archlinux
             platforms: linux/amd64
             file: archlinux.Dockerfile
-            build-args: BASE_IMAGE_TAG=archlinux
+            build-args: |
+              BASE_IMAGE_TAG=archlinux
+              USERNAME=ruoyu
           - tags: zhongruoyu/workbench:clearlinux
             platforms: linux/amd64
             file: clearlinux.Dockerfile
-            build-args: BASE_IMAGE_TAG=clearlinux
+            build-args: |
+              BASE_IMAGE_TAG=clearlinux
+              USERNAME=ruoyu
           - tags: zhongruoyu/workbench:alpine
             platforms: linux/amd64,linux/arm64
             file: alpine.Dockerfile
-            build-args: BASE_IMAGE_TAG=alpine
+            build-args: |
+              BASE_IMAGE_TAG=alpine
+              USERNAME=ruoyu
     runs-on: ubuntu-latest
     steps:
       - name: Set up QEMU

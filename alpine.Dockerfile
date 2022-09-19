@@ -3,14 +3,16 @@
 ARG BASE_IMAGE_TAG=alpine
 FROM zhongruoyu/sandbox:${BASE_IMAGE_TAG}
 
+ARG USERNAME
+
 RUN <<-"EOF"
     set -e
     ssh-keygen -A
-    addgroup -g 1000 ruoyu
-    adduser -D -G ruoyu -h /home/ruoyu -s /bin/zsh -u 1000 ruoyu
-    echo "ruoyu ALL=(ALL) NOPASSWD:ALL" >/etc/sudoers.d/ruoyu
+    addgroup -g 1000 "${USERNAME}"
+    adduser -D -G "${USERNAME}" -h "/home/${USERNAME}" -s /bin/zsh -u 1000 "${USERNAME}"
+    echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" | tee "/etc/sudoers.d/${USERNAME}" >/dev/null
 EOF
-VOLUME [ "/home/ruoyu" ]
+VOLUME [ "/home/${USERNAME}" ]
 
 COPY --chmod=755 <<-"EOF" /usr/local/bin/docker-entrypoint.sh
 #!/bin/bash
