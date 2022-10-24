@@ -20,6 +20,12 @@ jobs:
             build-args: |
               BASE_IMAGE_TAG=jammy
               USERNAME=ruoyu
+          - tags: zhongruoyu/workbench:kinetic
+            platforms: linux/amd64,linux/arm64
+            file: ubuntu.Dockerfile
+            build-args: |
+              BASE_IMAGE_TAG=kinetic
+              USERNAME=ruoyu
           - tags: zhongruoyu/workbench:focal
             platforms: linux/amd64,linux/arm64
             file: ubuntu.Dockerfile
