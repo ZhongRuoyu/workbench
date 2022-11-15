@@ -9,7 +9,7 @@ RUN <<-"EOF"
     set -e
     ssh-keygen -A
     groupadd -g 1000 "${USERNAME}"
-    useradd -d "/home/${USERNAME}" -g "${USERNAME}" -m -s /usr/bin/zsh -u 1000 "${USERNAME}"
+    useradd -d "/home/${USERNAME}" -g "${USERNAME}" -m -s /bin/zsh -u 1000 "${USERNAME}"
     echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" | tee "/etc/sudoers.d/${USERNAME}" >/dev/null
 EOF
 VOLUME [ "/home/${USERNAME}" ]
