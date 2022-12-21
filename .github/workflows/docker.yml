@@ -18,55 +18,55 @@ jobs:
             platforms: linux/amd64,linux/arm64
             file: ubuntu.Dockerfile
             build-args: |
-              BASE_IMAGE_TAG=jammy
+              BASE_IMAGE=zhongruoyu/sandbox:jammy
               USERNAME=ruoyu
           - tags: zhongruoyu/workbench:kinetic
             platforms: linux/amd64,linux/arm64
             file: ubuntu.Dockerfile
             build-args: |
-              BASE_IMAGE_TAG=kinetic
+              BASE_IMAGE=zhongruoyu/sandbox:kinetic
               USERNAME=ruoyu
           - tags: zhongruoyu/workbench:focal
             platforms: linux/amd64,linux/arm64
             file: ubuntu.Dockerfile
             build-args: |
-              BASE_IMAGE_TAG=focal
+              BASE_IMAGE=zhongruoyu/sandbox:focal
               USERNAME=ruoyu
           - tags: zhongruoyu/workbench:debian,zhongruoyu/workbench:bullseye
             platforms: linux/amd64,linux/arm64
             file: debian.Dockerfile
             build-args: |
-              BASE_IMAGE_TAG=bullseye
+              BASE_IMAGE=zhongruoyu/sandbox:bullseye
               USERNAME=ruoyu
           - tags: zhongruoyu/workbench:fedora
             platforms: linux/amd64,linux/arm64
             file: fedora.Dockerfile
             build-args: |
-              BASE_IMAGE_TAG=fedora
+              BASE_IMAGE=zhongruoyu/sandbox:fedora
               USERNAME=ruoyu
           - tags: zhongruoyu/workbench:rockylinux,zhongruoyu/workbench:rockylinux-9
             platforms: linux/amd64,linux/arm64
             file: rockylinux.Dockerfile
             build-args: |
-              BASE_IMAGE_TAG=rockylinux-9
+              BASE_IMAGE=zhongruoyu/sandbox:rockylinux-9
               USERNAME=ruoyu
           - tags: zhongruoyu/workbench:archlinux
             platforms: linux/amd64
             file: archlinux.Dockerfile
             build-args: |
-              BASE_IMAGE_TAG=archlinux
+              BASE_IMAGE=zhongruoyu/sandbox:archlinux
               USERNAME=ruoyu
           - tags: zhongruoyu/workbench:clearlinux
             platforms: linux/amd64
             file: clearlinux.Dockerfile
             build-args: |
-              BASE_IMAGE_TAG=clearlinux
+              BASE_IMAGE=zhongruoyu/sandbox:clearlinux
               USERNAME=ruoyu
           - tags: zhongruoyu/workbench:alpine
             platforms: linux/amd64,linux/arm64
             file: alpine.Dockerfile
             build-args: |
-              BASE_IMAGE_TAG=alpine
+              BASE_IMAGE=zhongruoyu/sandbox:alpine
               USERNAME=ruoyu
     runs-on: ubuntu-latest
     steps:

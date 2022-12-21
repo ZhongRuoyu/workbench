@@ -1,10 +1,9 @@
 # syntax=docker/dockerfile:1
 
-ARG BASE_IMAGE_TAG=alpine
-FROM zhongruoyu/sandbox:${BASE_IMAGE_TAG}
+ARG BASE_IMAGE
+FROM ${BASE_IMAGE}
 
 ARG USERNAME
-
 RUN <<-"EOF"
     set -e
     ssh-keygen -A
