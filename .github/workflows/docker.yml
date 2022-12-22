@@ -69,13 +69,13 @@ jobs:
               BASE_IMAGE=zhongruoyu/sandbox:almalinux-8
               USERNAME=ruoyu
           - tags: zhongruoyu/workbench:opensuse,zhongruoyu/workbench:opensuse-tumbleweed
-            platforms: linux/amd64,linux/arm64
+            platforms: linux/amd64
             file: opensuse.Dockerfile
             build-args: |
               BASE_IMAGE=zhongruoyu/sandbox:opensuse-tumbleweed
               USERNAME=ruoyu
           - tags: zhongruoyu/workbench:opensuse-leap,zhongruoyu/workbench:opensuse-leap-15
-            platforms: linux/amd64,linux/arm64
+            platforms: linux/amd64
             file: opensuse.Dockerfile
             build-args: |
               BASE_IMAGE=zhongruoyu/sandbox:opensuse-leap-15
