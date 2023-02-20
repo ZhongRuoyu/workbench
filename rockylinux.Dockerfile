@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 
 ARG BASE_IMAGE
-FROM ${BASE_IMAGE}
+FROM "${BASE_IMAGE}"
 
 ARG USERNAME
 RUN <<-"EOF"
@@ -13,7 +13,7 @@ RUN <<-"EOF"
 EOF
 USER "${USERNAME}"
 WORKDIR "/home/${USERNAME}"
-VOLUME [ "/home/${USERNAME}" ]
+VOLUME "/home/${USERNAME}"
 
 COPY --chmod=755 <<-"EOF" /usr/local/bin/docker-entrypoint.sh
 #!/bin/bash
