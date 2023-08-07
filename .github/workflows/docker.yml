@@ -20,11 +20,11 @@ jobs:
             build-args: |
               BASE_IMAGE=zhongruoyu/sandbox:jammy
               USERNAME=ruoyu
-          - tags: zhongruoyu/workbench:kinetic
+          - tags: zhongruoyu/workbench:lunar
             platforms: linux/amd64,linux/arm64
             file: ubuntu.Dockerfile
             build-args: |
-              BASE_IMAGE=zhongruoyu/sandbox:kinetic
+              BASE_IMAGE=zhongruoyu/sandbox:lunar
               USERNAME=ruoyu
           - tags: zhongruoyu/workbench:focal
             platforms: linux/amd64,linux/arm64
