@@ -7,6 +7,12 @@ ARG USERNAME
 RUN <<-"EOF"
   set -e
   ssh-keygen -A
+  if getent passwd ubuntu; then
+    userdel -r ubuntu
+  fi
+  if getent group ubuntu; then
+    groupdel ubuntu
+  fi
   groupadd -g 1000 "${USERNAME}"
   useradd -d "/home/${USERNAME}" -g "${USERNAME}" -m -s /bin/zsh -u 1000 "${USERNAME}"
   echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" | tee "/etc/sudoers.d/${USERNAME}" >/dev/null
