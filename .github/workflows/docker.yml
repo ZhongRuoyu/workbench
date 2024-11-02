@@ -110,6 +110,7 @@ jobs:
             build-args: |
               BASE_IMAGE=zhongruoyu/sandbox:alpine
               USERNAME=ruoyu
+    name: ${{ matrix.target.tags }}
     runs-on: ubuntu-latest
     steps:
       - name: Set up QEMU
@@ -119,7 +120,7 @@ jobs:
       - name: Login to DockerHub
         uses: docker/login-action@v3
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          username: zhongruoyu
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Build and push Docker images
         uses: docker/build-push-action@v6
