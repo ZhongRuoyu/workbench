@@ -102,12 +102,6 @@ jobs:
             build-args: |
               BASE_IMAGE=zhongruoyu/sandbox:archlinux
               USERNAME=ruoyu
-          - tags: zhongruoyu/workbench:clearlinux
-            platforms: linux/amd64
-            file: clearlinux.Dockerfile
-            build-args: |
-              BASE_IMAGE=zhongruoyu/sandbox:clearlinux
-              USERNAME=ruoyu
           - tags: zhongruoyu/workbench:alpine
             platforms: linux/amd64,linux/arm64
             file: alpine.Dockerfile
