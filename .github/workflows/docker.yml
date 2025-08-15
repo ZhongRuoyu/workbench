@@ -60,7 +60,13 @@ jobs:
             build-args: |
               BASE_IMAGE=zhongruoyu/sandbox:fedora
               USERNAME=ruoyu
-          - tags: zhongruoyu/workbench:rockylinux,zhongruoyu/workbench:rockylinux-9
+          - tags: zhongruoyu/workbench:rockylinux,zhongruoyu/workbench:rockylinux-10
+            platforms: linux/amd64,linux/arm64
+            file: rockylinux.Dockerfile
+            build-args: |
+              BASE_IMAGE=zhongruoyu/sandbox:rockylinux-10
+              USERNAME=ruoyu
+          - tags: zhongruoyu/workbench:rockylinux-9
             platforms: linux/amd64,linux/arm64
             file: rockylinux.Dockerfile
             build-args: |
