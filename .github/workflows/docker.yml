@@ -18,7 +18,25 @@ jobs:
       fail-fast: false
       matrix:
         target:
-          - tags: zhongruoyu/workbench:noble,zhongruoyu/workbench:ubuntu,zhongruoyu/workbench:latest
+          - tags: zhongruoyu/workbench:debian,zhongruoyu/workbench:trixie,zhongruoyu/workbench:latest
+            platforms: linux/amd64,linux/arm64
+            file: debian.Dockerfile
+            build-args: |
+              BASE_IMAGE=zhongruoyu/sandbox:trixie
+              USERNAME=ruoyu
+          - tags: zhongruoyu/workbench:bookworm
+            platforms: linux/amd64,linux/arm64
+            file: debian.Dockerfile
+            build-args: |
+              BASE_IMAGE=zhongruoyu/sandbox:bookworm
+              USERNAME=ruoyu
+          - tags: zhongruoyu/workbench:bullseye
+            platforms: linux/amd64,linux/arm64
+            file: debian.Dockerfile
+            build-args: |
+              BASE_IMAGE=zhongruoyu/sandbox:bullseye
+              USERNAME=ruoyu
+          - tags: zhongruoyu/workbench:ubuntu,zhongruoyu/workbench:noble
             platforms: linux/amd64,linux/arm64
             file: ubuntu.Dockerfile
             build-args: |
@@ -41,24 +59,6 @@ jobs:
             file: ubuntu.Dockerfile
             build-args: |
               BASE_IMAGE=zhongruoyu/sandbox:focal
-              USERNAME=ruoyu
-          - tags: zhongruoyu/workbench:debian,zhongruoyu/workbench:trixie
-            platforms: linux/amd64,linux/arm64
-            file: debian.Dockerfile
-            build-args: |
-              BASE_IMAGE=zhongruoyu/sandbox:trixie
-              USERNAME=ruoyu
-          - tags: zhongruoyu/workbench:bookworm
-            platforms: linux/amd64,linux/arm64
-            file: debian.Dockerfile
-            build-args: |
-              BASE_IMAGE=zhongruoyu/sandbox:bookworm
-              USERNAME=ruoyu
-          - tags: zhongruoyu/workbench:bullseye
-            platforms: linux/amd64,linux/arm64
-            file: debian.Dockerfile
-            build-args: |
-              BASE_IMAGE=zhongruoyu/sandbox:bullseye
               USERNAME=ruoyu
           - tags: zhongruoyu/workbench:fedora
             platforms: linux/amd64,linux/arm64
