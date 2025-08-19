@@ -42,7 +42,13 @@ jobs:
             build-args: |
               BASE_IMAGE=zhongruoyu/sandbox:focal
               USERNAME=ruoyu
-          - tags: zhongruoyu/workbench:debian,zhongruoyu/workbench:bookworm
+          - tags: zhongruoyu/workbench:debian,zhongruoyu/workbench:trixie
+            platforms: linux/amd64,linux/arm64
+            file: debian.Dockerfile
+            build-args: |
+              BASE_IMAGE=zhongruoyu/sandbox:trixie
+              USERNAME=ruoyu
+          - tags: zhongruoyu/workbench:bookworm
             platforms: linux/amd64,linux/arm64
             file: debian.Dockerfile
             build-args: |
