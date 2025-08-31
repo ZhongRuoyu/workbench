@@ -19,8 +19,6 @@ RUN <<-"EOF"
 EOF
 USER "${USERNAME}"
 WORKDIR "/home/${USERNAME}"
-VOLUME "/home/${USERNAME}"
-VOLUME "/home/linuxbrew"
 
 COPY --chmod=755 <<-"EOF" /usr/local/bin/docker-entrypoint.sh
 #!/bin/bash
